@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getWorkout } from './get-workout';
+import { getWorkout } from './get-workouts';
 import { postWorkout } from './post-workout';
 
 export const workoutRouter = Router();
