@@ -2,8 +2,11 @@
   "name": "workout-application-backend",
   "description": "",
   "version": "1.0.0", 
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
   "scripts": {
-    "start": "prisma db push && ts-node src/index.ts"
+    "start": "prisma db push && prisma db seed && ts-node src/index.ts"
   },
   "engines": {
     "node": "17.9.0"

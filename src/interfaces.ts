@@ -2,6 +2,7 @@ export type Workout = {
     id: String;
     title: String;
     description: String;
+    default: boolean;
     exercises: Exercise[];
 }
 
