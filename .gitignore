@@ -1,6 +1,5 @@
 # npm
 node_modules
-package-lock.json
 *.log
 *.gz
 
@@ -22,7 +21,6 @@ dist/
 .idea
 tmp-resolvers
 flow-typed
-yarn.lock
 javascript/**/migrations/
 typescript/**/migrations/
 misc/**/migrations/
