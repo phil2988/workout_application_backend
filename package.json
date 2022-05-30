@@ -1,6 +1,12 @@
 {
+  "name": "workout-application-backend",
+  "description": "",
+  "version": "1.0.0", 
   "scripts": {
     "start": "prisma db push && ts-node src/index.ts"
+  },
+  "engines": {
+    "node": "17.9.0"
   },
   "dependencies": {
     "@prisma/client": "^3.14.0",
