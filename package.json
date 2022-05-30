@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "npx prisma db push && yarn ts-node src/index.ts"
+    "start": "yarn prisma db push && yarn ts-node-dev --ignore-watch nexus-typegen.ts --transpile-only ./src"
   },
   "dependencies": {
     "@prisma/client": "^3.14.0",
