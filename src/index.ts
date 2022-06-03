@@ -6,7 +6,7 @@ import { workoutRouter } from './workout/router';
 createPrisma();
 
 const router = Router();
-router.use('/workouts', workoutRouter);
+router.use('/workout', workoutRouter);
 router.use('/exerciseData', exerciseDataRouter);
 
 const app = express()
