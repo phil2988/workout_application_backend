@@ -1,15 +1,13 @@
-import { PrismaClient } from '@prisma/client'
-import express, { application, Router } from 'express'
-import { exerciseRouter } from './exercise/exercise-router';
+import express, { Router } from 'express'
+import { exerciseDataRouter } from './ExerciseData/router';
 import { createPrisma } from './utils/prisma';
-import { getWorkout } from './workout/get-workouts'
-import { workoutRouter } from './workout/workout-router';
+import { workoutRouter } from './workout/router';
 
 createPrisma();
 
 const router = Router();
-router.use('/workout', workoutRouter);
-router.use('/exercise', exerciseRouter);
+router.use('/workouts', workoutRouter);
+router.use('/exerciseData', exerciseDataRouter);
 
 const app = express()
 app.use(express.json())

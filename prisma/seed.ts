@@ -1,9 +1,12 @@
 import { getPrisma } from "../src/utils/prisma";
 
-export async function seedWorkoutsAndExercisesWithRelations() {
+main();
+
+async function main() {
     await seedWorkouts();
     await seedExercises();
     await seedRelations();
+    await seedExerciseData();
 }
 
 async function seedWorkouts(){
@@ -122,7 +125,7 @@ async function seedExercises() {
     catch{}
 }
 
-export async function seedRelations() {
+async function seedRelations() {
     const prisma = await getPrisma();
 
     console.debug("Seeding workout exercise relations...");
@@ -142,4 +145,85 @@ export async function seedRelations() {
         where: { id: "4" },
         data: { exercises: { set: [{id: "2"}, {id: "1"}, {id: "6"}, {id: "3"}] } }
     })
+}
+
+async function seedExerciseData(){
+
+    const prisma = await getPrisma();
+    
+    console.debug("Seeding exercise data");
+
+    prisma.exerciseData.deleteMany();
+
+    try{
+        await prisma.exerciseData.createMany({
+            data: [
+                {
+                    id: "1",
+                    exerciseId: "1",
+                    reps: 10,
+                    weight: 20,
+                    sets: 3
+                },  
+                {
+                    id: "2",
+                    exerciseId: "2",
+                    reps: 12,
+                    weight: 30,
+                    sets: 3
+                },  
+                {
+                    id: "3",
+                    exerciseId: "3",
+                    reps: 7,
+                    weight: 60,
+                    sets: 3
+                },  
+                {
+                    id: "4",
+                    exerciseId: "4",
+                    reps: 8,
+                    weight: 30,
+                    sets: 3
+                },  
+                {
+                    id: "5",
+                    exerciseId: "5",
+                    reps: 5,
+                    weight: 55,
+                    sets: 3
+                },  
+                {
+                    id: "6",
+                    exerciseId: "6",
+                    reps: 15,
+                    weight: 31.5,
+                    sets: 3
+                },  
+                {
+                    id: "7",
+                    exerciseId: "7",
+                    reps: 13,
+                    weight: 22,
+                    sets: 3
+                },  
+                {
+                    id: "8",
+                    exerciseId: "8",
+                    reps: 11,
+                    weight: 5.5,
+                    sets: 3
+                },  
+                {
+                    id: "9",
+                    exerciseId: "9",
+                    reps: 12,
+                    weight: 19,
+                    sets: 3
+                },  
+            ]
+        });
+    }
+    catch{}
+
 }
