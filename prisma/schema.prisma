@@ -11,12 +11,13 @@ datasource db {
 }
 
 model Exercise {
-  id          String   @id @default(cuid())
-  title       String?
-  description String?
-  images      String?
-  category    String?
-  Workout     Workout[]
+  id           String         @id @default(cuid())
+  title        String?
+  description  String?
+  images       String?
+  category     String?
+  Workout      Workout[]
+  ExerciseData ExerciseData[]
 }
 
 model Workout {
@@ -25,4 +26,13 @@ model Workout {
   description String?
   default     Boolean    @default(false)
   exercises   Exercise[]
+}
+
+model ExerciseData {
+  id         String   @id @default(cuid())
+  exercise   Exercise @relation(fields: [exerciseId], references: [id])
+  exerciseId String
+  reps       Int
+  sets       Int
+  weight     Float
 }
