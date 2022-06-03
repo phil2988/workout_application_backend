@@ -1,4 +1,5 @@
 import express, { Router } from 'express'
+import { exerciseDataRouter } from './ExerciseData/router';
 import { createPrisma } from './utils/prisma';
 import { workoutRouter } from './workout/router';
 
@@ -6,7 +7,7 @@ createPrisma();
 
 const router = Router();
 router.use('/workouts', workoutRouter);
-// router.use('/exerciseData', exerciseDataRouter);
+router.use('/exerciseData', exerciseDataRouter);
 
 const app = express()
 app.use(express.json())
