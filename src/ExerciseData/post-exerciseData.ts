@@ -6,7 +6,7 @@ export async function postExerciseData(request: Request, response: Response){
 
     const created = await prisma.exerciseData.create({
         data: {
-            exerciseId: request.body.exerciseId,
+            exerciseId: request.body.exercise.exerciseId,
             reps: request.body.reps,
             weight: request.body.weight,
             sets: request.body.sets
