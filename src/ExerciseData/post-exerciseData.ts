@@ -1,5 +1,5 @@
 import { getPrisma } from "../utils/prisma";
-import e, { Request, Response } from 'express';
+import { Request, Response } from 'express';
 
 export async function postExerciseData(request: Request, response: Response){
     const prisma = await getPrisma();
