@@ -13,10 +13,8 @@ async function seedWorkouts(){
     const prisma = await getPrisma();
 
     console.debug("Seeding workouts...");
-
-    prisma.workout.deleteMany();
-    
     try {            
+        await prisma.workout.deleteMany();
         await prisma.workout.createMany({
             data:[
                 {
@@ -43,17 +41,15 @@ async function seedWorkouts(){
             ] 
         })
     } 
-    catch {}
+    catch(error) { console.log(error); }
 }
 
 async function seedExercises() {
     const prisma = await getPrisma();
-
+    
     console.debug("Seeding exercises...");
-
-    prisma.exercise.deleteMany();
-
     try {
+        await prisma.exercise.deleteMany();
         await prisma.exercise.createMany({
             data:[
                 { 
@@ -171,33 +167,35 @@ async function seedExercises() {
             ]
         });
     }
-    catch{}
+    catch(error) { console.log(error); }
 }
 
 async function seedRelations() {
     const prisma = await getPrisma();
 
     console.debug("Seeding workout exercise relations...");
-    await prisma.workout.update({
-        // Chest focused workout
-        where: { id: "1" },
-        data: { exercises: { set: [{id: "1"}, {id: "7"}, {id: "5"}, {id: "12"}] } },
-    });
-    await prisma.workout.update({
-        // Kill the legs
-        where: { id: "2" },
-        data: { exercises: { set: [{id: "13"},{id: "16"}, {id: "10"}, {id: "2"}] } },
-    });
-    await prisma.workout.update({
-        // Big Guns
-        where: { id: "3" },
-        data: { exercises: { set: [{id: "5"},{id: "6"}, {id: "11"}, {id: "13"}] } },
-    });
-    await prisma.workout.update({
-        // I like big backs
-        where: { id: "4" },
-        data: { exercises: { set: [{id: "3"}, {id: "8"}, {id: "15"}, {id: "14"}] } }
-    });
+    try {
+        await prisma.workout.update({
+            // Chest focused workout
+            where: { id: "1" },
+            data: { exercises: { set: [{id: "1"}, {id: "7"}, {id: "5"}, {id: "12"}] } },
+        });
+        await prisma.workout.update({
+            // Kill the legs
+            where: { id: "2" },
+            data: { exercises: { set: [{id: "13"},{id: "16"}, {id: "10"}, {id: "2"}] } },
+        });
+        await prisma.workout.update({
+            // Big Guns
+            where: { id: "3" },
+            data: { exercises: { set: [{id: "5"},{id: "6"}, {id: "11"}, {id: "13"}] } },
+        });
+        await prisma.workout.update({
+            // I like big backs
+            where: { id: "4" },
+            data: { exercises: { set: [{id: "3"}, {id: "8"}, {id: "15"}, {id: "14"}] } }
+        });
+    } catch(error) { console.log(error); }
 }
 
 async function seedExerciseData(){
@@ -276,7 +274,5 @@ async function seedExerciseData(){
                 },  
             ]
         });
-    }
-    catch{}
-
+    } catch(error) { console.log(error); }
 }
