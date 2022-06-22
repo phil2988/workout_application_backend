@@ -144,7 +144,7 @@ async function seedExercises() {
                     title : "Regular Squats",
                     description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet leo eget urna vehicula tempor. Donec congue turpis nisi, ac luctus orci condimentum et. In justo nibh, dapibus sit amet faucibus at, porttitor at magna. Nullam nec consequat quam. Donec justo justo, maximus ac magna ac, tempus sodales justo. Sed varius sit amet eros nec volutpat. Mauris sed orci suscipit, consectetur tellus eu, congue erat. Sed est ligula, sollicitudin nec scelerisque in, mollis ac lorem. Maecenas condimentum aliquet tempus. Suspendisse auctor condimentum diam, a imperdiet felis rhoncus in. Donec a erat sollicitudin, eleifend risus nec, posuere ante. Donec placerat pellentesque mauris vel molestie. Maecenas aliquet egestas elit, finibus egestas dui convallis sit amet. Donec velit leo, feugiat eu scelerisque ut, interdum quis sapien. Nam ut tortor eget nulla faucibus consectetur.",
                     images : "Regular Squats.png",
-                    category : "legs"
+                    category : "Legs"
                 },
                 {
                     id : "14",
