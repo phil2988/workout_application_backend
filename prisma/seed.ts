@@ -12,9 +12,13 @@ async function main() {
 async function seedWorkouts(){
     const prisma = await getPrisma();
 
+
     console.debug("Seeding workouts...");
     try {            
+        await prisma.exerciseData.deleteMany();
         await prisma.workout.deleteMany();
+        await prisma.exercise.deleteMany();
+
         await prisma.workout.createMany({
             data:[
                 {
@@ -49,7 +53,6 @@ async function seedExercises() {
     
     console.debug("Seeding exercises...");
     try {
-        await prisma.exercise.deleteMany();
         await prisma.exercise.createMany({
             data:[
                 { 
